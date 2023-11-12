@@ -9,42 +9,45 @@
 <!-- Styles -->
 <style>
     body {
-        background-color: black;
         height: 100vh;
+        background-color: black;
         display: flex;
+        color: white;
+        text-align: center;
         justify-content: space-around;
         align-items: center;
-        /* Alignement vertical au centre */
-        color: azure;
-        text-align: center;
+
     }
 </style>
 
 <body>
 
     <!-- Conteneur initial -->
-    <div class="container">
-        <h1 class="Title">Canvas HTML</h1>
-        <canvas id="canvas_1" width="400" height="400" style="border: solid orange;"></canvas>
+    <div class="container1">
+        <h1 class="Title1">Canvas HTML</h1>
+        <canvas id="Canvas1" width="400" height="400" style="border: solid orange;"></canvas>
     </div>
 
     <!-- Script JavaScript -->
     <script>
-        // Sélectionne le div avec la classe 'container'
-        let div = document.querySelector('.container');
-
-        // Clone le div sélectionné avec son contenu
+        // Sélectionne le div avec la classe 'container1'
+        let div = document.querySelector('.container1');
+        // cloner le container 'container1' avec la classe 'container2
         let newDiv = div.cloneNode(true);
-
-        // Modifie le contenu du titre dans le nouveau div
-        newDiv.querySelector('.Title').innerHTML = "Canvas JS";
-
-        // Modifie l'ID et la bordure du canevas dans le nouveau div
-        newDiv.querySelector('#canvas_1').id = 'canvas_2';
-        newDiv.querySelector('#canvas_2').style.border = 'solid red';
-
-        // Ajoute le nouveau div modifié au corps du document
+        newDiv.className = 'container2';
+        // create new elements pour 'container2' a partir de la classe 'container1'
+        let newTitle = newDiv.querySelector('.Title1');
+        let newCanvas = newDiv.querySelector('#Canvas1');
+        console.log(newCanvas);
+        // update id
+        newTitle.className = "Title2";
+        newCanvas.id = "Canvas2";
+        // update content 
+        newTitle.innerText = "Canvas JS";
+        newCanvas.style.border = "solid brown";
+        // atache newdiv element to body 
         document.body.appendChild(newDiv);
+
     </script>
 
 </body>
