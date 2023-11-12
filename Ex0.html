@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas HTML</title>
+</head>
+<!-- Styles -->
+<style>
+    body {
+        background-color: black;
+        height: 100vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        /* Alignement vertical au centre */
+        color: azure;
+        text-align: center;
+    }
+</style>
+
+<body>
+
+    <!-- Conteneur initial -->
+    <div class="container">
+        <h1 class="Title">Canvas HTML</h1>
+        <canvas id="canvas_1" width="400" height="400" style="border: solid orange;"></canvas>
+    </div>
+
+    <!-- Script JavaScript -->
+    <script>
+        // Sélectionne le div avec la classe 'container'
+        let div = document.querySelector('.container');
+
+        // Clone le div sélectionné avec son contenu
+        let newDiv = div.cloneNode(true);
+
+        // Modifie le contenu du titre dans le nouveau div
+        newDiv.querySelector('.Title').innerHTML = "Canvas JS";
+
+        // Modifie l'ID et la bordure du canevas dans le nouveau div
+        newDiv.querySelector('#canvas_1').id = 'canvas_2';
+        newDiv.querySelector('#canvas_2').style.border = 'solid red';
+
+        // Ajoute le nouveau div modifié au corps du document
+        document.body.appendChild(newDiv);
+    </script>
+
+</body>
+
+</html>
