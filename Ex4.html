@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+
+        #canvas {
+            border-radius: 50px;
+            box-shadow: 0 0 50px white;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        let canvas = document.getElementById("canvas");
+        canvas.width = 400;
+        canvas.height = 400;
+        let ctx = canvas.getContext("2d");
+
+        let img = new Image();
+        img.src = "https://www.photo-paysage.com/albums/userpics/10001/Cascade_-15.JPG";
+
+
+        img.onload = function () {
+            let x_min = 400;
+            let x_max = 600;
+            let x = x_min;
+            let y = canvas.height;
+            let speed = 1;
+            let direction = 1;
+
+            function animate() {
+                ctx.drawImage(img, 0, 0, x, y);
+                if (x < x_min) {
+                    x = x_min;
+                    direction *= -1;
+                }
+                if (x > x_max) {
+                    x = x_max;
+                    direction *= -1;
+                }
+                x += speed * direction;
+                console.log(x);
+
+
+                requestAnimationFrame(animate);
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+
+    </script>
+</body>
+
+</html>
