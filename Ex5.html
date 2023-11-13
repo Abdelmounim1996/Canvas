@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        #canvas {
+            border-radius: 50%;
+            box-shadow: 0 0 20px white;
+
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"> </canvas>
+    <script>
+        let canvas = document.getElementById("canvas");
+        canvas.width = 400;
+        canvas.height = 400;
+        let ctx = canvas.getContext("2d");
+
+        let it = 0;
+        let jt = 0;
+
+        requestAnimationFrame(animate);
+
+        function animate() {
+
+            ctx.fillStyle = `rgb(${Math.floor(Math.random() * 256)}
+                , ${Math.floor(Math.random() * 256)}
+                , ${Math.floor(Math.random() * 256)})`;
+            ctx.fillRect(50 * jt, 50 * it, 50, 50);
+            ctx.beginPath();
+            ctx.fillStyle = `rgb(${Math.floor(Math.random() * 256)}
+                , ${Math.floor(Math.random() * 256)}
+                , ${Math.floor(Math.random() * 256)})`;
+            ctx.arc(50 * jt, 50 * it, 50 / 4, 0, 2 * Math.PI);
+            ctx.fill();
+            it++;
+            if (it == 8) {
+                it = 0;
+                jt++;
+                if (jt == 8) {
+                    jt = 0;
+                }
+
+            }
+            requestAnimationFrame(animate);
+        }
+    </script>
+</body>
+
+</html>
